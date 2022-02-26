@@ -1,0 +1,33 @@
+﻿@page
+@using ASP.NET_with_razor_pages.Model
+@model ASP.NET_with_razor_pages.Pages.Categories.EditModel;
+
+@{
+    ViewData["Title"] = "Edit category";
+}
+
+<form method="post">
+    <div class="pt-4 spb-3 mt-4">
+        <h2 class="text-primary pl-3">Edit Category</h2>
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3 mt-4">
+        <label asp-for="Category.Name" style="width:150px;">Name :</label><br />
+        <input type="text" asp-for="Category.Name" style="width: 300px;" />
+        <span asp-validation-for="Category.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Category.DisplayOrder" style="width: 150px;">Display Order :</label><br />
+        <input type="text" asp-for="Category.DisplayOrder" style="width: 300px;" />
+        <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>@* Server Side Validation *@
+    </div>
+    <input hidden asp-for="Category.Id" /> @* binding id of current category To allow update of category, instead of adding new updated category on update *@
+    <button type="submit" class="btn btn-primary mt-4 mb-4" style="width:100px;">Update</button>
+    <a asp-page="Index" class="btn btn-primary mt-4 mb-4" style="width:100px;">Back</a>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

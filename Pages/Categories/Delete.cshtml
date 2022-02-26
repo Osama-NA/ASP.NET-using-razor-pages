@@ -1,0 +1,23 @@
+﻿@page
+@using ASP.NET_with_razor_pages.Model
+@model ASP.NET_with_razor_pages.Pages.Categories.DeleteModel;
+@{
+    ViewData["Title"] = "Delete category";
+}
+
+<form method="post">
+    <div class="pt-4 spb-3 mt-4">
+        <h2 class="text-primary pl-3">Delete Category</h2>
+    </div>
+    <div class="mb-3 mt-4">
+        <label asp-for="Category.Name" style="width:150px;">Name : @Model.Category.Name</label><br />
+        <span asp-validation-for="Category.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Category.DisplayOrder" style="width: 150px;">Display Order : @Model.Category.DisplayOrder </label>
+        <span asp-validation-for="Category.DisplayOrder" class="text-danger"></span>
+    </div>
+    <input hidden asp-for="Category.Id" />
+    <button type="submit" class="btn btn-danger mt-4 mb-4" style="width:100px;">Confirm</button>
+    <a asp-page="Index" class="btn btn-primary mt-4 mb-4" style="width:100px;">Cancel</a>
+</form>
